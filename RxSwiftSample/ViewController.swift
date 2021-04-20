@@ -28,18 +28,21 @@ class ViewController: UIViewController {
         print("hello")
      
         let storyBoard: UIStoryboard = UIStoryboard(name:"GitView", bundle:nil)
-        let viewController = storyBoard.instantiateViewController(identifier: "GitViewControllerID")
+        let viewController = storyBoard.instantiateViewController(identifier: "GitViewControllerID") as! GitViewController
         viewController.modalPresentationStyle = .fullScreen
+        viewController.viewModel = GitViewModel()
         present(viewController, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gitView = segue.destination
-        guard let gitVC = gitView as? GitViewController else{
-            return
-        }
-        gitVC.viewModel = GitViewModel()
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let gitView = segue.destination
+//        NSLog("prepare called")
+//        guard let gitVC = gitView as? GitViewController else{
+//            NSLog("gitView is nil")
+//            return
+//        }
+//        gitVC.viewModel = GitViewModel()
+//    }
     
      
     

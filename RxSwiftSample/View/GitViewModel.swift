@@ -13,7 +13,6 @@ import RxCocoa
 class GitViewModel : ViewModelType{
     let networkMng: NetworkManager = NetworkManager()
     
-    
     struct Input {
         let initView: Driver<Void>
         let selectedIndex: Driver<IndexPath>
